@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/PrzychodniaDLL" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/PrzychodniaDLL" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfLekarz">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Lekarz" nillable="true" type="tns:Lekarz" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLekarz" nillable="true" type="tns:ArrayOfLekarz" />
+  <xs:complexType name="Lekarz">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDLL">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Imie" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Nazwisko" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Lekarz" nillable="true" type="tns:Lekarz" />
+  <xs:complexType name="BaseDLL">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DataStworzenia" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="BaseDLL" nillable="true" type="tns:BaseDLL" />
+  <xs:complexType name="ArrayOfPacjent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Pacjent" nillable="true" type="tns:Pacjent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPacjent" nillable="true" type="tns:ArrayOfPacjent" />
+  <xs:complexType name="Pacjent">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDLL">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Choroby" nillable="true" type="tns:ArrayOfChoroba" />
+          <xs:element minOccurs="0" name="Imie" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Nazwisko" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Pacjent" nillable="true" type="tns:Pacjent" />
+  <xs:complexType name="ArrayOfChoroba">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Choroba" nillable="true" type="tns:Choroba" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfChoroba" nillable="true" type="tns:ArrayOfChoroba" />
+  <xs:complexType name="Choroba">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDLL">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Leki" nillable="true" type="tns:ArrayOfLek" />
+          <xs:element minOccurs="0" name="Nazwa" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Choroba" nillable="true" type="tns:Choroba" />
+  <xs:complexType name="ArrayOfLek">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Lek" nillable="true" type="tns:Lek" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLek" nillable="true" type="tns:ArrayOfLek" />
+  <xs:complexType name="Lek">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDLL">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CzasStosowania" type="xs:int" />
+          <xs:element minOccurs="0" name="Nazwa" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Lek" nillable="true" type="tns:Lek" />
+  <xs:complexType name="ArrayOfGrafik">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Grafik" nillable="true" type="tns:Grafik" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGrafik" nillable="true" type="tns:ArrayOfGrafik" />
+  <xs:complexType name="Grafik">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:BaseDLL">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Diagnoza" nillable="true" type="xs:boolean" />
+          <xs:element minOccurs="0" name="Godzina" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Lekarz" nillable="true" type="tns:Lekarz" />
+          <xs:element minOccurs="0" name="Pacjent" nillable="true" type="tns:Pacjent" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Grafik" nillable="true" type="tns:Grafik" />
+</xs:schema>

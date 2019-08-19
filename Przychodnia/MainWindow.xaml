@@ -1,0 +1,315 @@
+﻿<Window x:Class="Przychodnia.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Przychodnia"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="MainWindow" 
+        WindowState="Maximized"
+        Height="600" Width="800"
+        Closing="Window_Closing">
+    <Window.Resources>
+        <Style TargetType="ListViewItem">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <StackPanel>
+            <materialDesign:Card Padding="10" Margin="10">
+                <TabControl>
+                    <TabItem Header="Lekarze" Padding="15 5">
+                        <StackPanel>
+                            <ListView Name="LekarzeListView" ItemsSource="{Binding ListaLekarzy, Mode=TwoWay}" SelectedItem="{Binding SelectedLekarz, Mode=TwoWay}">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Imię" DisplayMemberBinding="{Binding Imie}" Width="Auto"/>
+                                        <GridViewColumn Header="Nazwisko" DisplayMemberBinding="{Binding Nazwisko}" Width="Auto"/>
+                                    </GridView>
+                                </ListView.View>
+                                
+                                <ListView.ContextMenu>
+                                    <ContextMenu StaysOpen="true" Background="WhiteSmoke">
+                                        <ContextMenu.BitmapEffect>
+                                            <BitmapEffectGroup/>
+                                        </ContextMenu.BitmapEffect>
+                                        <MenuItem Header="Dodaj"
+                                                  Name="DodajLekarzaContextMenu"
+                                                  Click="DodajLekarzaContextMenu_Click"/>
+                                        <MenuItem Header="Usuń"
+                                                  Name="UsunLekarzaContextMenu"
+                                                  Click="UsunLekarzaContextMenu_Click"/>
+                                    </ContextMenu>
+                                </ListView.ContextMenu>
+                            </ListView>
+
+                            <materialDesign:Card Padding="10" Margin="10" Visibility="{Binding SelectedLekarz, Converter={StaticResource NullVisibilityConverter}}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.ColumnSpan="2" Content="Dane lekarza" FontWeight="Bold" />
+
+                                    <Label Grid.Row="1" Content="Id:" />
+                                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SelectedLekarz.Id}" />
+
+                                    <Label Grid.Row="2" Content="Data dodania:" />
+                                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding SelectedLekarz.DataStworzenia, StringFormat={}{0:HH:mm:ss MM/dd/yyyy}}"/>
+
+                                    <Label Grid.Row="3" Content="Imię:" />
+                                    <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding SelectedLekarz.Imie}" />
+
+                                    <Label Grid.Row="4" Content="Nazwisko:" />
+                                    <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding SelectedLekarz.Nazwisko}" />
+
+                                </Grid>
+                            </materialDesign:Card>
+                        </StackPanel>
+                    </TabItem>
+
+                    <TabItem Header="Pacjenci" Padding="15 5">
+                        <StackPanel>
+                            <ListView Name="PacjenciListView" ItemsSource="{Binding ListaPacjentow, Mode=TwoWay}" SelectedItem="{Binding SelectedPacjent, Mode=TwoWay}">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Imię" DisplayMemberBinding="{Binding Imie}" Width="Auto"/>
+                                        <GridViewColumn Header="Nazwisko" DisplayMemberBinding="{Binding Nazwisko}" Width="Auto"/>
+                                        <GridViewColumn Header="Czy chory" DisplayMemberBinding="{Binding CzyChory}" Width="Auto"/>
+                                    </GridView>
+                                </ListView.View>
+
+                                <ListView.ContextMenu>
+                                    <ContextMenu StaysOpen="true" Background="WhiteSmoke">
+                                        <ContextMenu.BitmapEffect>
+                                            <BitmapEffectGroup/>
+                                        </ContextMenu.BitmapEffect>
+                                        <MenuItem Header="Dodaj"
+                                                  Name="DodajPacjentaContextMenu"
+                                                  Click="DodajPacjentaContextMenu_Click"/>
+                                        <MenuItem Header="Usuń"
+                                                  Name="UsunPacjentaContextMenu"
+                                                  Click="UsunPacjentaContextMenu_Click"/>
+                                    </ContextMenu>
+                                </ListView.ContextMenu>
+                            </ListView>
+
+                            <materialDesign:Card Padding="10" Margin="10" Visibility="{Binding SelectedPacjent, Converter={StaticResource NullVisibilityConverter}}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.ColumnSpan="2" Content="Dane Pacjenta" FontWeight="Bold" />
+
+                                    <Label Grid.Row="1" Content="Id:" />
+                                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SelectedPacjent.Id}" />
+
+                                    <Label Grid.Row="2" Content="Data dodania:" />
+                                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding SelectedPacjent.DataStworzenia, StringFormat={}{0:HH:mm:ss MM/dd/yyyy}}"/>
+
+                                    <Label Grid.Row="3" Content="Imię:" />
+                                    <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding SelectedPacjent.Imie}" />
+
+                                    <Label Grid.Row="4" Content="Nazwisko:" />
+                                    <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding SelectedPacjent.Nazwisko}" />
+
+                                    <Label Grid.Row="5" Content="Podejrzenie choroby:" />
+                                    <ListBox Grid.Row="5" Grid.Column="1" ItemsSource="{Binding SelectedPacjent.Choroby, Mode=TwoWay}">
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel>
+                                                    <TextBlock Text="{Binding Nazwa}"/>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+
+                                </Grid>
+                            </materialDesign:Card>
+                        </StackPanel>
+                    </TabItem>
+
+                    <TabItem Header="Choroby" Padding="15 5">
+                        <StackPanel>
+                            <ListView Name="ChorobyListView" ItemsSource="{Binding ListaChorob, Mode=TwoWay}" SelectedItem="{Binding SelectedChoroba, Mode=TwoWay}">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Nazwa" DisplayMemberBinding="{Binding Nazwa}" Width="Auto"/>
+                                    </GridView>
+                                </ListView.View>
+
+                                <ListView.ContextMenu>
+                                    <ContextMenu StaysOpen="true" Background="WhiteSmoke">
+                                        <ContextMenu.BitmapEffect>
+                                            <BitmapEffectGroup/>
+                                        </ContextMenu.BitmapEffect>
+                                        <MenuItem Header="Dodaj"
+                                                  Name="DodajChorobeContextMenu"
+                                                  Click="DodajChorobeContextMenu_Click"/>
+                                        <MenuItem Header="Usuń"
+                                                  Name="UsunChorobeContextMenu"
+                                                  Click="UsunChorobeContextMenu_Click"/>
+                                    </ContextMenu>
+                                </ListView.ContextMenu>
+                            </ListView>
+
+                            <materialDesign:Card Padding="10" Margin="10" Visibility="{Binding SelectedChoroba, Converter={StaticResource NullVisibilityConverter}}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.ColumnSpan="2" Content="Dane choroby" FontWeight="Bold" />
+
+                                    <Label Grid.Row="1" Content="Id:" />
+                                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SelectedChoroba.Id}" />
+
+                                    <Label Grid.Row="2" Content="Data dodania:" />
+                                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding SelectedChoroba.DataStworzenia, StringFormat={}{0:HH:mm:ss MM/dd/yyyy}}"/>
+
+                                    <Label Grid.Row="3" Content="Nazwa:" />
+                                    <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding SelectedChoroba.Nazwa}" />
+
+                                    <Label Grid.Row="4" Content="Leczenie:" />
+                                    <ListBox Grid.Row="4" Grid.Column="1" ItemsSource="{Binding SelectedChoroba.Leki, Mode=TwoWay}">
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel>
+                                                    <TextBlock>
+                                                        <Run Text="{Binding Nazwa}"/>
+                                                        <Run Text=", czas stosowania "/>
+                                                        <Run Text="{Binding CzasStosowania}"/>
+                                                        <Run Text=" dni."/>
+                                                    </TextBlock>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                    
+                                </Grid>
+                            </materialDesign:Card>
+                        </StackPanel>
+                    </TabItem>
+
+                    <TabItem Header="Leki" Padding="15 5">
+                        <StackPanel>
+                            <ListView Name="LekiListView" ItemsSource="{Binding ListaLekow, Mode=TwoWay}" SelectedItem="{Binding SelectedLek, Mode=TwoWay}">
+                                <ListView.View>
+                                    <GridView>
+                                        <GridViewColumn Header="Nazwa" DisplayMemberBinding="{Binding Nazwa}" Width="Auto"/>
+                                        <GridViewColumn Header="Czas stosowania" DisplayMemberBinding="{Binding CzasStosowania}" Width="Auto"/>
+                                    </GridView>
+                                </ListView.View>
+
+                                <ListView.ContextMenu>
+                                    <ContextMenu StaysOpen="true" Background="WhiteSmoke">
+                                        <ContextMenu.BitmapEffect>
+                                            <BitmapEffectGroup/>
+                                        </ContextMenu.BitmapEffect>
+                                        <MenuItem Header="Dodaj"
+                                                  Name="DodajLekContextMenu"
+                                                  Click="DodajLekContextMenu_Click"/>
+                                        <MenuItem Header="Usuń"
+                                                  Name="UsunLekContextMenu"
+                                                  Click="UsunLekContextMenu_Click"/>
+                                    </ContextMenu>
+                                </ListView.ContextMenu>
+                            </ListView>
+
+                            <materialDesign:Card Padding="10" Margin="10" Visibility="{Binding SelectedLek, Converter={StaticResource NullVisibilityConverter}}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.ColumnSpan="2" Content="Dane leku" FontWeight="Bold" />
+
+                                    <Label Grid.Row="1" Content="Id:" />
+                                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SelectedLek.Id}" />
+
+                                    <Label Grid.Row="2" Content="Data dodania:" />
+                                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding SelectedLek.DataStworzenia, StringFormat={}{0:HH:mm:ss MM/dd/yyyy}}"/>
+
+                                    <Label Grid.Row="3" Content="Nazwa:" />
+                                    <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding SelectedLek.Nazwa}" />
+
+                                    <Label Grid.Row="4" Content="Czas stosowania:" />
+                                    <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding SelectedLek.CzasStosowania}" />
+                                </Grid>
+                            </materialDesign:Card>
+                        </StackPanel>
+                    </TabItem>
+
+                    <TabItem Header="Grafik" Padding="15 5">
+                        <materialDesign:Card Padding="10" Margin="10">
+                            <StackPanel>
+                                <DatePicker Width="100" SelectedDate="{Binding SelectedDateGrafik}" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+
+                                <ListView Name="GrafikListView" ItemsSource="{Binding ListaGrafiki, Mode=TwoWay}" SelectedItem="{Binding SelectedGrafik, Mode=TwoWay}">
+                                    <ListView.View>
+                                        <GridView>
+                                            <GridViewColumn Header="Godzina wizyty" DisplayMemberBinding="{Binding Godzina, StringFormat=HH}" Width="Auto"/>
+                                            <GridViewColumn Header="Lekarz" DisplayMemberBinding="{Binding Lekarz}" Width="Auto"/>
+                                            <GridViewColumn Header="Pacjent" DisplayMemberBinding="{Binding Pacjent}" Width="Auto"/>
+                                            <GridViewColumn Header="Choroby pacjenta" DisplayMemberBinding="{Binding Pacjent.ChorobyToString}" Width="Auto"/>
+                                        </GridView>
+                                    </ListView.View>
+
+                                    <ListView.ContextMenu>
+                                        <ContextMenu StaysOpen="true" Background="WhiteSmoke">
+                                            <ContextMenu.BitmapEffect>
+                                                <BitmapEffectGroup/>
+                                            </ContextMenu.BitmapEffect>
+                                            <MenuItem Header="Dodaj"
+                                                  Name="DodajGrafikContextMenu"
+                                                  Click="DodajGrafikContextMenu_Click"/>
+                                            <MenuItem Header="Usuń"
+                                                  Name="UsunGrafikContextMenu"
+                                                  Click="UsunGrafikContextMenu_Click"/>
+                                        </ContextMenu>
+                                    </ListView.ContextMenu>
+                                </ListView>
+                            </StackPanel>
+                        </materialDesign:Card>
+                    </TabItem>
+                    
+                </TabControl>
+            </materialDesign:Card>
+        </StackPanel>
+    </Grid>
+</Window>

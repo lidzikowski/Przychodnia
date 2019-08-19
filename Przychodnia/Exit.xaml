@@ -1,0 +1,20 @@
+﻿<Window x:Class="Przychodnia.Exit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Przychodnia"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Exit"
+        WindowStartupLocation="CenterScreen"
+        Height="165" Width="400">
+    <Grid>
+        <materialDesign:Card Padding="10" Margin="10">
+            <StackPanel>
+                <Button x:Name="YesButton" Click="YesButton_Click" Content="Tak" Padding="5" Margin="5"/>
+                <Button x:Name="NoButton" Click="NoButton_Click" Content="Nie" Padding="5" Margin="5"/>
+            </StackPanel>
+        </materialDesign:Card>
+    </Grid>
+</Window>

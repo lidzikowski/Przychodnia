@@ -1,0 +1,42 @@
+﻿<Window x:Class="Przychodnia.DodajLek"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Przychodnia"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="DodajLek" Height="250" Width="400">
+    <Window.Resources>
+        <Style TargetType="ListViewItem">
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <materialDesign:Card Padding="10" Margin="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.ColumnSpan="2" Content="Dane leku" FontWeight="Bold" />
+
+                <Label Grid.Row="1" Content="Nazwa:" />
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Lek.Nazwa}" />
+
+                <Label Grid.Row="2" Content="Czas stosowania:" />
+                <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Lek.CzasStosowania}" />
+
+                <Button Grid.Row="3" Grid.Column="1" Content="Dodaj" Margin="15 5" Name="DodajButton" Click="DodajButton_Click"/>
+
+            </Grid>
+        </materialDesign:Card>
+    </Grid>
+</Window>

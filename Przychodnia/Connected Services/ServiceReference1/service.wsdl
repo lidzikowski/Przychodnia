@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/PrzychodniaDLL" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_PobierzLekarzy_InputMessage">
+    <wsdl:part name="parameters" element="tns:PobierzLekarzy" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PobierzLekarzy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PobierzLekarzyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DodajLekarza_InputMessage">
+    <wsdl:part name="parameters" element="tns:DodajLekarza" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DodajLekarza_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DodajLekarzaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsunLekarza_InputMessage">
+    <wsdl:part name="parameters" element="tns:UsunLekarza" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsunLekarza_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UsunLekarzaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PobierzPacjentow_InputMessage">
+    <wsdl:part name="parameters" element="tns:PobierzPacjentow" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PobierzPacjentow_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PobierzPacjentowResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DodajPacjenta_InputMessage">
+    <wsdl:part name="parameters" element="tns:DodajPacjenta" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DodajPacjenta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DodajPacjentaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsunPacjenta_InputMessage">
+    <wsdl:part name="parameters" element="tns:UsunPacjenta" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsunPacjenta_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UsunPacjentaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PobierzChoroby_InputMessage">
+    <wsdl:part name="parameters" element="tns:PobierzChoroby" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PobierzChoroby_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PobierzChorobyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DodajChorobe_InputMessage">
+    <wsdl:part name="parameters" element="tns:DodajChorobe" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DodajChorobe_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DodajChorobeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsunChorobe_InputMessage">
+    <wsdl:part name="parameters" element="tns:UsunChorobe" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsunChorobe_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UsunChorobeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PobierzLeki_InputMessage">
+    <wsdl:part name="parameters" element="tns:PobierzLeki" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PobierzLeki_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PobierzLekiResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DodajLek_InputMessage">
+    <wsdl:part name="parameters" element="tns:DodajLek" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DodajLek_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DodajLekResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsunLek_InputMessage">
+    <wsdl:part name="parameters" element="tns:UsunLek" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsunLek_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UsunLekResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PobierzGrafik_InputMessage">
+    <wsdl:part name="parameters" element="tns:PobierzGrafik" />
+  </wsdl:message>
+  <wsdl:message name="IService1_PobierzGrafik_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PobierzGrafikResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DodajGrafik_InputMessage">
+    <wsdl:part name="parameters" element="tns:DodajGrafik" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DodajGrafik_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DodajGrafikResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsunGrafik_InputMessage">
+    <wsdl:part name="parameters" element="tns:UsunGrafik" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UsunGrafik_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UsunGrafikResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="PobierzLekarzy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/PobierzLekarzy" message="tns:IService1_PobierzLekarzy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/PobierzLekarzyResponse" message="tns:IService1_PobierzLekarzy_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DodajLekarza">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DodajLekarza" message="tns:IService1_DodajLekarza_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DodajLekarzaResponse" message="tns:IService1_DodajLekarza_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UsunLekarza">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsunLekarza" message="tns:IService1_UsunLekarza_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UsunLekarzaResponse" message="tns:IService1_UsunLekarza_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PobierzPacjentow">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/PobierzPacjentow" message="tns:IService1_PobierzPacjentow_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/PobierzPacjentowResponse" message="tns:IService1_PobierzPacjentow_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DodajPacjenta">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DodajPacjenta" message="tns:IService1_DodajPacjenta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DodajPacjentaResponse" message="tns:IService1_DodajPacjenta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UsunPacjenta">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsunPacjenta" message="tns:IService1_UsunPacjenta_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UsunPacjentaResponse" message="tns:IService1_UsunPacjenta_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PobierzChoroby">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/PobierzChoroby" message="tns:IService1_PobierzChoroby_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/PobierzChorobyResponse" message="tns:IService1_PobierzChoroby_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DodajChorobe">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DodajChorobe" message="tns:IService1_DodajChorobe_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DodajChorobeResponse" message="tns:IService1_DodajChorobe_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UsunChorobe">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsunChorobe" message="tns:IService1_UsunChorobe_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UsunChorobeResponse" message="tns:IService1_UsunChorobe_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PobierzLeki">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/PobierzLeki" message="tns:IService1_PobierzLeki_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/PobierzLekiResponse" message="tns:IService1_PobierzLeki_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DodajLek">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DodajLek" message="tns:IService1_DodajLek_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DodajLekResponse" message="tns:IService1_DodajLek_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UsunLek">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsunLek" message="tns:IService1_UsunLek_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UsunLekResponse" message="tns:IService1_UsunLek_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PobierzGrafik">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/PobierzGrafik" message="tns:IService1_PobierzGrafik_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/PobierzGrafikResponse" message="tns:IService1_PobierzGrafik_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DodajGrafik">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DodajGrafik" message="tns:IService1_DodajGrafik_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DodajGrafikResponse" message="tns:IService1_DodajGrafik_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UsunGrafik">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UsunGrafik" message="tns:IService1_UsunGrafik_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UsunGrafikResponse" message="tns:IService1_UsunGrafik_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="PobierzLekarzy">
+      <soap:operation soapAction="http://tempuri.org/IService1/PobierzLekarzy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DodajLekarza">
+      <soap:operation soapAction="http://tempuri.org/IService1/DodajLekarza" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsunLekarza">
+      <soap:operation soapAction="http://tempuri.org/IService1/UsunLekarza" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PobierzPacjentow">
+      <soap:operation soapAction="http://tempuri.org/IService1/PobierzPacjentow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DodajPacjenta">
+      <soap:operation soapAction="http://tempuri.org/IService1/DodajPacjenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsunPacjenta">
+      <soap:operation soapAction="http://tempuri.org/IService1/UsunPacjenta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PobierzChoroby">
+      <soap:operation soapAction="http://tempuri.org/IService1/PobierzChoroby" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DodajChorobe">
+      <soap:operation soapAction="http://tempuri.org/IService1/DodajChorobe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsunChorobe">
+      <soap:operation soapAction="http://tempuri.org/IService1/UsunChorobe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PobierzLeki">
+      <soap:operation soapAction="http://tempuri.org/IService1/PobierzLeki" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DodajLek">
+      <soap:operation soapAction="http://tempuri.org/IService1/DodajLek" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsunLek">
+      <soap:operation soapAction="http://tempuri.org/IService1/UsunLek" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PobierzGrafik">
+      <soap:operation soapAction="http://tempuri.org/IService1/PobierzGrafik" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DodajGrafik">
+      <soap:operation soapAction="http://tempuri.org/IService1/DodajGrafik" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UsunGrafik">
+      <soap:operation soapAction="http://tempuri.org/IService1/UsunGrafik" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://localhost:8733/Design_Time_Addresses/PrzychodniaWCF/Service1/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
