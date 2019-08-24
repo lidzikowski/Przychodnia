@@ -77,7 +77,7 @@ namespace Przychodnia
             }
         }
 
-        private DateTime? selectedDateGrafik;
+        private DateTime? selectedDateGrafik = DateTime.Now;
         public DateTime? SelectedDateGrafik
         {
             get => selectedDateGrafik;
@@ -120,6 +120,7 @@ namespace Przychodnia
             builder.RegisterType<DodajPacjenta>();
             builder.RegisterType<DodajChorobe>();
             builder.RegisterType<DodajLek>();
+            builder.RegisterType<DodajGrafik>();
 
             builder.RegisterType<WybierzChorobe>();
             builder.RegisterType<WybierzLek>();
@@ -304,7 +305,24 @@ namespace Przychodnia
 
         private void DodajGrafikContextMenu_Click(object sender, RoutedEventArgs e)
         {
-            // TODO
+            if (SelectedGrafik is Grafik grafik && grafik.Id == 0)
+            {
+                DodajGrafik dodajGrafik = Container.Resolve<DodajGrafik>();
+                dodajGrafik.Grafik = grafik;
+
+                if (dodajGrafik.ShowDialog() != true)
+                    return;
+
+                Grafik grafikSerwis = Container.Resolve<Service1Client>().DodajGrafik(grafik);
+
+                if (grafik != null)
+                {
+                    ListaGrafiki = new ObservableCollection<Grafik>(Container.Resolve<Service1Client>().PobierzGrafik(grafik.Godzina));
+                    OnPropertyRaised(nameof(ListaGrafiki));
+                }
+                else
+                    WiadomoscBledu();
+            }
         }
 
         private void UsunGrafikContextMenu_Click(object sender, RoutedEventArgs e)

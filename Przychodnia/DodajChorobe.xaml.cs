@@ -18,13 +18,13 @@ namespace Przychodnia
 
 
 
-        public DodajChorobe()
+        public DodajChorobe(Choroba choroba)
         {
             InitializeComponent();
 
             DataContext = this;
 
-            Choroba = MainWindow.Container.Resolve<Choroba>();
+            Choroba = choroba;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

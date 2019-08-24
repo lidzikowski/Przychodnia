@@ -6,5 +6,6 @@ namespace PrzychodniaDLL
     {
         public long Id { get; set; }
         public DateTime? DataStworzenia { get; set; }
+        public bool Aktywny { get; set; } = true;
     }
 }

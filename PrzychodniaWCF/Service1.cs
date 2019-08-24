@@ -8,20 +8,31 @@ namespace PrzychodniaWCF
 {
     public class Service1 : IService1
     {
+        private static Random random = new Random();
+
         #region Lekarz
         private static List<Lekarz> Lekarze = new List<Lekarz>();
 
         public List<Lekarz> PobierzLekarzy()
         {
-            Lekarze.Clear();
-            Lekarze.Add(new Lekarz() { Imie = "Jan", Nazwisko = "Test" });
-            Lekarze.Add(new Lekarz() { Imie = "Nfg", Nazwisko = "Test2" });
-            Lekarze.Add(new Lekarz() { Imie = "AAA", Nazwisko = "BBB" });
-
-            for (int i = 0; i < Lekarze.Count; i++)
+            if (Lekarze.Count == 0)
             {
-                Lekarze[i].Id = i;
-                Lekarze[i].DataStworzenia = DateTime.Now;
+                Lekarze.Clear();
+                Lekarze.Add(new Lekarz() { Imie = "Alan", Nazwisko = "Wierzbicki" });
+                Lekarze.Add(new Lekarz() { Imie = "Oliwia", Nazwisko = "Kaczmarek" });
+                Lekarze.Add(new Lekarz() { Imie = "Bartek", Nazwisko = "Marek" });
+                Lekarze.Add(new Lekarz() { Imie = "Bartek", Nazwisko = "Jabłoński" });
+                Lekarze.Add(new Lekarz() { Imie = "Tomasz", Nazwisko = "Zając" });
+                Lekarze.Add(new Lekarz() { Imie = "Aleksandra", Nazwisko = "Duda" });
+                Lekarze.Add(new Lekarz() { Imie = "Laura", Nazwisko = "Kowalczyk" });
+                Lekarze.Add(new Lekarz() { Imie = "Gabriela", Nazwisko = "Michałowska" });
+                Lekarze.Add(new Lekarz() { Imie = "Klaudia", Nazwisko = "Rutkowska" });
+
+                for (int i = 0; i < Lekarze.Count; i++)
+                {
+                    Lekarze[i].Id = i + 1;
+                    Lekarze[i].DataStworzenia = DateTime.Now;
+                }
             }
 
             return Lekarze;
@@ -53,15 +64,35 @@ namespace PrzychodniaWCF
 
         public List<Pacjent> PobierzPacjentow()
         {
-            Pacjenci.Clear();
-            Pacjenci.Add(new Pacjent() { Imie = "Jan", Nazwisko = "Test", Choroby = new ObservableCollection<Choroba>(PobierzChoroby()) });
-            Pacjenci.Add(new Pacjent() { Imie = "Nfg", Nazwisko = "Test2" });
-            Pacjenci.Add(new Pacjent() { Imie = "AAA", Nazwisko = "BBB" });
-
-            for (int i = 0; i < Pacjenci.Count; i++)
+            if (Pacjenci.Count == 0)
             {
-                Pacjenci[i].Id = i;
-                Pacjenci[i].DataStworzenia = DateTime.Now;
+                Pacjenci.Clear();
+                PobierzChoroby();
+                Pacjenci.Add(new Pacjent() { Imie = "Andrzej", Nazwisko = "Zieliński", Choroby = RandomChoroby() });
+                Pacjenci.Add(new Pacjent() { Imie = "Janusz", Nazwisko = "Maciejewski", Choroby = RandomChoroby() });
+                Pacjenci.Add(new Pacjent() { Imie = "Stefan", Nazwisko = "Nowakowski", Choroby = RandomChoroby() });
+                Pacjenci.Add(new Pacjent() { Imie = "Antoni", Nazwisko = "Sobolewska", Choroby = RandomChoroby() });
+                Pacjenci.Add(new Pacjent() { Imie = "Ewa", Nazwisko = "Gołębiowska", Choroby = RandomChoroby() });
+                Pacjenci.Add(new Pacjent() { Imie = "Karol", Nazwisko = "Sikorski", Choroby = RandomChoroby() });
+                Pacjenci.Add(new Pacjent() { Imie = "Mateusz", Nazwisko = "Sadowski", Choroby = RandomChoroby() });
+                Pacjenci.Add(new Pacjent() { Imie = "Marianna", Nazwisko = "Kubiak", Choroby = RandomChoroby() });
+
+                for (int i = 0; i < Pacjenci.Count; i++)
+                {
+                    Pacjenci[i].Id = i + 1;
+                    Pacjenci[i].DataStworzenia = DateTime.Now;
+                }
+
+                ObservableCollection<Choroba> RandomChoroby()
+                {
+                    int ilosc = random.Next(0, 8);
+                    ObservableCollection<Choroba> choroby = new ObservableCollection<Choroba>();
+                    for (int i = 0; i < ilosc; i++)
+                    {
+                        choroby.Add(Choroby[random.Next(0, Choroby.Count - 1)]);
+                    }
+                    return choroby;
+                }
             }
 
             return Pacjenci;
@@ -93,15 +124,37 @@ namespace PrzychodniaWCF
 
         public List<Choroba> PobierzChoroby()
         {
-            Choroby.Clear();
-            Choroby.Add(new Choroba() { Nazwa = "Grozlica", Leki = new ObservableCollection<Lek>(PobierzLeki())});
-            Choroby.Add(new Choroba() { Nazwa = "Odra" });
-            Choroby.Add(new Choroba() { Nazwa = "Świnka" });
-
-            for (int i = 0; i < Choroby.Count; i++)
+            if (Choroby.Count == 0)
             {
-                Choroby[i].Id = i;
-                Choroby[i].DataStworzenia = DateTime.Now;
+                Choroby.Clear();
+                PobierzLeki();
+                Choroby.Add(new Choroba() { Nazwa = "Grozlica", Leki = RandomLeki() });
+                Choroby.Add(new Choroba() { Nazwa = "Gigantyzm", Leki = RandomLeki() });
+                Choroby.Add(new Choroba() { Nazwa = "Menopauza", Leki = RandomLeki() });
+                Choroby.Add(new Choroba() { Nazwa = "Świnka", Leki = RandomLeki() });
+                Choroby.Add(new Choroba() { Nazwa = "Alkaptonuria", Leki = RandomLeki() });
+                Choroby.Add(new Choroba() { Nazwa = "Odra", Leki = RandomLeki() });
+                Choroby.Add(new Choroba() { Nazwa = "Mukowiscydoza", Leki = RandomLeki() });
+                Choroby.Add(new Choroba() { Nazwa = "Lęk", Leki = RandomLeki() });
+                Choroby.Add(new Choroba() { Nazwa = "Synestezja", Leki = RandomLeki() });
+                Choroby.Add(new Choroba() { Nazwa = "Amyloidoza", Leki = RandomLeki() });
+
+                for (int i = 0; i < Choroby.Count; i++)
+                {
+                    Choroby[i].Id = i + 1;
+                    Choroby[i].DataStworzenia = DateTime.Now;
+                }
+
+                ObservableCollection<Lek> RandomLeki()
+                {
+                    int ilosc = random.Next(0, 8);
+                    ObservableCollection<Lek> leki = new ObservableCollection<Lek>();
+                    for (int i = 0; i < ilosc; i++)
+                    {
+                        leki.Add(Leki[random.Next(0, Leki.Count - 1)]);
+                    }
+                    return leki;
+                }
             }
 
             return Choroby;
@@ -133,15 +186,32 @@ namespace PrzychodniaWCF
 
         public List<Lek> PobierzLeki()
         {
-            Leki.Clear();
-            Leki.Add(new Lek() { Nazwa = "Ibuprom" });
-            Leki.Add(new Lek() { Nazwa = "Apap" });
-            Leki.Add(new Lek() { Nazwa = "Test" });
-
-            for (int i = 0; i < Leki.Count; i++)
+            if (Leki.Count == 0)
             {
-                Leki[i].Id = i;
-                Leki[i].DataStworzenia = DateTime.Now;
+                Leki.Clear();
+                Leki.Add(new Lek() { Nazwa = "Ibuprom", CzasStosowania = 1 });
+                Leki.Add(new Lek() { Nazwa = "Apap", CzasStosowania = 3 });
+                Leki.Add(new Lek() { Nazwa = "Amol", CzasStosowania = 7 });
+                Leki.Add(new Lek() { Nazwa = "Test", CzasStosowania = 2 });
+                Leki.Add(new Lek() { Nazwa = "Hitaxa", CzasStosowania = 4 });
+                Leki.Add(new Lek() { Nazwa = "Abra", CzasStosowania = 5 });
+                Leki.Add(new Lek() { Nazwa = "ABSENOR", CzasStosowania = 3 });
+                Leki.Add(new Lek() { Nazwa = "Cirrus", CzasStosowania = 2 });
+                Leki.Add(new Lek() { Nazwa = "Clatra", CzasStosowania = 4 });
+                Leki.Add(new Lek() { Nazwa = "Aspicam", CzasStosowania = 6 });
+                Leki.Add(new Lek() { Nazwa = "Acenol", CzasStosowania = 2 });
+                Leki.Add(new Lek() { Nazwa = "MIG", CzasStosowania = 3 });
+                Leki.Add(new Lek() { Nazwa = "Kofepar", CzasStosowania = 4 });
+                Leki.Add(new Lek() { Nazwa = "Nalgesin", CzasStosowania = 7 });
+                Leki.Add(new Lek() { Nazwa = "Atywia", CzasStosowania = 4 });
+                Leki.Add(new Lek() { Nazwa = "Fitoprost", CzasStosowania = 5 });
+                Leki.Add(new Lek() { Nazwa = "Aclexa", CzasStosowania = 3 });
+
+                for (int i = 0; i < Leki.Count; i++)
+                {
+                    Leki[i].Id = i + 1;
+                    Leki[i].DataStworzenia = DateTime.Now;
+                }
             }
 
             return Leki;
@@ -175,18 +245,31 @@ namespace PrzychodniaWCF
         {
             if(Grafiki.Count == 0)
             {
-                Grafiki.Add(new Grafik() { Lekarz = PobierzLekarzy().First(), Pacjent = PobierzPacjentow().First(), Godzina = new DateTime(2019, 08, 19, 15, 0, 0) });
-                Grafiki.Add(new Grafik() { Lekarz = PobierzLekarzy().First(), Pacjent = PobierzPacjentow().First(), Godzina = new DateTime(2019, 08, 19, 16, 0, 0) });
-                Grafiki.Add(new Grafik() { Lekarz = PobierzLekarzy().First(), Pacjent = PobierzPacjentow().First(), Godzina = new DateTime(2019, 08, 19, 17, 0, 0) });
-                Grafiki.Add(new Grafik() { Lekarz = PobierzLekarzy().First(), Pacjent = PobierzPacjentow().First(), Godzina = new DateTime(2019, 08, 19, 18, 0, 0) });
+                PobierzLekarzy();
+                PobierzPacjentow();
 
-                Grafiki.Add(new Grafik() { Lekarz = PobierzLekarzy().Last(), Pacjent = PobierzPacjentow().Last(), Godzina = new DateTime(2019, 08, 19, 19, 0, 0) });
-                Grafiki.Add(new Grafik() { Lekarz = PobierzLekarzy().Last(), Pacjent = PobierzPacjentow().Last(), Godzina = new DateTime(2019, 08, 19, 20, 0, 0) });
-
-                for (int i = 0; i < Grafiki.Count; i++)
+                if (Lekarze.Count != 0 && Pacjenci.Count != 0)
                 {
-                    Grafiki[i].Id = i + 1;
-                    Grafiki[i].DataStworzenia = DateTime.Now;
+                    for (int i = 8; i <= 16; i++)
+                    {
+                        if (i > random.Next(8, 15))
+                            continue;
+
+                        DateTime godzina = new DateTime(dateTime.Year, dateTime.Month, dateTime.Day, i, 0, 0);
+
+                        Grafiki.Add(new Grafik()
+                        {
+                            Lekarz = Lekarze[random.Next(0, Lekarze.Count - 1)],
+                            Pacjent = Pacjenci[random.Next(0, Pacjenci.Count - 1)],
+                            Godzina = godzina
+                        });
+                    }
+
+                    for (int i = 0; i < Grafiki.Count; i++)
+                    {
+                        Grafiki[i].Id = i + 1;
+                        Grafiki[i].DataStworzenia = DateTime.Now;
+                    }
                 }
             }
 
@@ -210,7 +293,7 @@ namespace PrzychodniaWCF
 
         public Grafik DodajGrafik(Grafik grafik)
         {
-            grafik.Id = Leki.Count > 0 ? Leki.Last().Id + 1 : 1;
+            grafik.Id = Grafiki.Count > 0 ? Grafiki.Last().Id + 1 : 1;
             grafik.DataStworzenia = DateTime.Now;
 
             Grafiki.Add(grafik);

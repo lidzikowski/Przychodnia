@@ -13,13 +13,13 @@ namespace Przychodnia
 
 
 
-        public DodajLek()
+        public DodajLek(Lek lek)
         {
             InitializeComponent();
 
             DataContext = this;
 
-            Lek = MainWindow.Container.Resolve<Lek>();
+            Lek = lek;
         }
 
         private void DodajButton_Click(object sender, RoutedEventArgs e)

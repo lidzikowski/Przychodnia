@@ -13,13 +13,13 @@ namespace Przychodnia
 
 
 
-        public DodajLekarza()
+        public DodajLekarza(Lekarz lekarz)
         {
             InitializeComponent();
 
             DataContext = this;
 
-            Lekarz = MainWindow.Container.Resolve<Lekarz>();
+            Lekarz = lekarz;
         }
 
 

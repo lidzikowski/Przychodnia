@@ -15,11 +15,17 @@
             <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         </Style>
     </Window.Resources>
+    
     <Grid>
-        <StackPanel>
-            <materialDesign:Card Padding="10" Margin="10">
-                <TabControl>
-                    <TabItem Header="Lekarze" Padding="15 5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <materialDesign:Card Padding="10" Margin="10">
+            <TabControl>
+                <TabItem Header="Lekarze" Padding="15 5">
+                    <ScrollViewer>
+
                         <StackPanel>
                             <ListView Name="LekarzeListView" ItemsSource="{Binding ListaLekarzy, Mode=TwoWay}" SelectedItem="{Binding SelectedLekarz, Mode=TwoWay}">
                                 <ListView.View>
@@ -28,7 +34,7 @@
                                         <GridViewColumn Header="Nazwisko" DisplayMemberBinding="{Binding Nazwisko}" Width="Auto"/>
                                     </GridView>
                                 </ListView.View>
-                                
+
                                 <ListView.ContextMenu>
                                     <ContextMenu StaysOpen="true" Background="WhiteSmoke">
                                         <ContextMenu.BitmapEffect>
@@ -75,9 +81,12 @@
                                 </Grid>
                             </materialDesign:Card>
                         </StackPanel>
-                    </TabItem>
+                    </ScrollViewer>
+                </TabItem>
 
-                    <TabItem Header="Pacjenci" Padding="15 5">
+                <TabItem Header="Pacjenci" Padding="15 5">
+                    <ScrollViewer>
+
                         <StackPanel>
                             <ListView Name="PacjenciListView" ItemsSource="{Binding ListaPacjentow, Mode=TwoWay}" SelectedItem="{Binding SelectedPacjent, Mode=TwoWay}">
                                 <ListView.View>
@@ -146,9 +155,12 @@
                                 </Grid>
                             </materialDesign:Card>
                         </StackPanel>
-                    </TabItem>
+                    </ScrollViewer>
+                </TabItem>
 
-                    <TabItem Header="Choroby" Padding="15 5">
+                <TabItem Header="Choroby" Padding="15 5">
+                    <ScrollViewer>
+
                         <StackPanel>
                             <ListView Name="ChorobyListView" ItemsSource="{Binding ListaChorob, Mode=TwoWay}" SelectedItem="{Binding SelectedChoroba, Mode=TwoWay}">
                                 <ListView.View>
@@ -212,13 +224,16 @@
                                             </DataTemplate>
                                         </ListBox.ItemTemplate>
                                     </ListBox>
-                                    
+
                                 </Grid>
                             </materialDesign:Card>
                         </StackPanel>
-                    </TabItem>
+                    </ScrollViewer>
+                </TabItem>
 
-                    <TabItem Header="Leki" Padding="15 5">
+                <TabItem Header="Leki" Padding="15 5">
+                    <ScrollViewer>
+
                         <StackPanel>
                             <ListView Name="LekiListView" ItemsSource="{Binding ListaLekow, Mode=TwoWay}" SelectedItem="{Binding SelectedLek, Mode=TwoWay}">
                                 <ListView.View>
@@ -273,43 +288,132 @@
                                 </Grid>
                             </materialDesign:Card>
                         </StackPanel>
-                    </TabItem>
+                    </ScrollViewer>
+                </TabItem>
 
-                    <TabItem Header="Grafik" Padding="15 5">
-                        <materialDesign:Card Padding="10" Margin="10">
-                            <StackPanel>
-                                <DatePicker Width="100" SelectedDate="{Binding SelectedDateGrafik}" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
+                <TabItem Header="Grafik" Padding="15 5">
+                    <ScrollViewer>
+                        <StackPanel>
+                            <materialDesign:Card Padding="10" Margin="10">
+                                <StackPanel>
+                                    <DatePicker Width="100" SelectedDate="{Binding SelectedDateGrafik}" SelectedDateChanged="DatePicker_SelectedDateChanged"/>
 
-                                <ListView Name="GrafikListView" ItemsSource="{Binding ListaGrafiki, Mode=TwoWay}" SelectedItem="{Binding SelectedGrafik, Mode=TwoWay}">
-                                    <ListView.View>
-                                        <GridView>
-                                            <GridViewColumn Header="Godzina wizyty" DisplayMemberBinding="{Binding Godzina, StringFormat=HH}" Width="Auto"/>
-                                            <GridViewColumn Header="Lekarz" DisplayMemberBinding="{Binding Lekarz}" Width="Auto"/>
-                                            <GridViewColumn Header="Pacjent" DisplayMemberBinding="{Binding Pacjent}" Width="Auto"/>
-                                            <GridViewColumn Header="Choroby pacjenta" DisplayMemberBinding="{Binding Pacjent.ChorobyToString}" Width="Auto"/>
-                                        </GridView>
-                                    </ListView.View>
+                                    <ListView Name="GrafikListView" ItemsSource="{Binding ListaGrafiki, Mode=TwoWay}" SelectedItem="{Binding SelectedGrafik, Mode=TwoWay}">
+                                        <ListView.View>
+                                            <GridView>
+                                                <GridViewColumn Header="Godzina wizyty" DisplayMemberBinding="{Binding Godzina, StringFormat=HH}" Width="Auto"/>
+                                                <GridViewColumn Header="Lekarz" DisplayMemberBinding="{Binding Lekarz}" Width="Auto"/>
+                                                <GridViewColumn Header="Pacjent" DisplayMemberBinding="{Binding Pacjent}" Width="Auto"/>
+                                                <GridViewColumn Header="Choroby pacjenta" DisplayMemberBinding="{Binding Pacjent.ChorobyToString}" Width="Auto"/>
+                                            </GridView>
+                                        </ListView.View>
 
-                                    <ListView.ContextMenu>
-                                        <ContextMenu StaysOpen="true" Background="WhiteSmoke">
-                                            <ContextMenu.BitmapEffect>
-                                                <BitmapEffectGroup/>
-                                            </ContextMenu.BitmapEffect>
-                                            <MenuItem Header="Dodaj"
+                                        <ListView.ContextMenu>
+                                            <ContextMenu StaysOpen="true" Background="WhiteSmoke">
+                                                <ContextMenu.BitmapEffect>
+                                                    <BitmapEffectGroup/>
+                                                </ContextMenu.BitmapEffect>
+                                                <MenuItem Header="Dodaj"
                                                   Name="DodajGrafikContextMenu"
                                                   Click="DodajGrafikContextMenu_Click"/>
-                                            <MenuItem Header="Usuń"
+                                                <MenuItem Header="Usuń"
                                                   Name="UsunGrafikContextMenu"
                                                   Click="UsunGrafikContextMenu_Click"/>
-                                        </ContextMenu>
-                                    </ListView.ContextMenu>
-                                </ListView>
-                            </StackPanel>
-                        </materialDesign:Card>
-                    </TabItem>
-                    
-                </TabControl>
-            </materialDesign:Card>
-        </StackPanel>
+                                            </ContextMenu>
+                                        </ListView.ContextMenu>
+                                    </ListView>
+                                </StackPanel>
+                            </materialDesign:Card>
+
+                            <materialDesign:Card Padding="10" Margin="10" Visibility="{Binding SelectedGrafik, Converter={StaticResource NullVisibilityConverter}}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="3*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.ColumnSpan="2" Content="Dane Grafik" FontWeight="Bold" />
+
+                                    <Label Grid.Row="1" Content="Id:" />
+                                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SelectedGrafik.Id}" />
+
+                                    <Label Grid.Row="2" Content="Data dodania:" />
+                                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding SelectedGrafik.DataStworzenia, StringFormat={}{0:HH:mm:ss MM/dd/yyyy}}"/>
+
+                                    <Label Grid.Row="3" Content="Data wizyty:" />
+                                    <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding SelectedGrafik.Godzina, StringFormat={}{0:MM/dd/yyyy - HH:mm}}" />
+
+                                    <materialDesign:Card Padding="10" Margin="10" Grid.Row="4" Grid.ColumnSpan="2">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="2*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Grid.ColumnSpan="2" Content="Dane lekarza" FontWeight="Bold" />
+
+                                            <Label Grid.Row="1" Content="Imię:" />
+                                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SelectedGrafik.Lekarz.Imie, Mode=TwoWay}" />
+
+                                            <Label Grid.Row="2" Content="Nazwisko:" />
+                                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding SelectedGrafik.Lekarz.Nazwisko, Mode=TwoWay}" />
+                                        </Grid>
+                                    </materialDesign:Card>
+
+                                    <materialDesign:Card Padding="10" Margin="10" Grid.Row="5" Grid.ColumnSpan="2">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                                <RowDefinition/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="3*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Grid.ColumnSpan="2" Content="Dane Pacjenta" FontWeight="Bold" />
+
+                                            <Label Grid.Row="1" Content="Imię:" />
+                                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SelectedGrafik.Pacjent.Imie}" />
+
+                                            <Label Grid.Row="2" Content="Nazwisko:" />
+                                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding SelectedGrafik.Pacjent.Nazwisko}" />
+
+                                            <Label Grid.Row="3" Content="Podejrzenie choroby:" />
+                                            <ListView Grid.Row="3" Grid.Column="1" ItemsSource="{Binding SelectedGrafik.Pacjent.Choroby, Mode=TwoWay}">
+                                                <ListBox.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <StackPanel>
+                                                            <TextBlock Text="{Binding Nazwa}"/>
+                                                        </StackPanel>
+                                                    </DataTemplate>
+                                                </ListBox.ItemTemplate>
+                                            </ListView>
+                                        </Grid>
+                                    </materialDesign:Card>
+
+                                </Grid>
+                            </materialDesign:Card>
+                        </StackPanel>
+                    </ScrollViewer>
+                </TabItem>
+
+            </TabControl>
+        </materialDesign:Card>
     </Grid>
 </Window>

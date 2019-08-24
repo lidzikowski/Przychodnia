@@ -3,4 +3,3 @@ C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaDLL\bin\Debug\PrzychodniaDLL
 C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaDLL\obj\Debug\PrzychodniaDLL.csproj.CoreCompileInputs.cache
 C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaDLL\obj\Debug\PrzychodniaDLL.dll
 C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaDLL\obj\Debug\PrzychodniaDLL.pdb
-C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaDLL\obj\Debug\PrzychodniaDLL.csprojAssemblyReference.cache

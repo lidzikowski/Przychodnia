@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Lukasz\source\repos\Przychodnia\Przychodnia\App.xaml
-8-213911674
+9-1410659791
 
-151897603071
+161026674824
 128-1140972528
-DodajLekarza.xaml;DodajChorobe.xaml;DodajPacjenta.xaml;DodajLek.xaml;Exit.xaml;MainWindow.xaml;WybierzLek.xaml;WybierzChorobe.xaml;
+DodajLekarza.xaml;DodajChorobe.xaml;DodajGrafik.xaml;DodajPacjenta.xaml;DodajLek.xaml;Exit.xaml;MainWindow.xaml;WybierzLek.xaml;WybierzChorobe.xaml;
 
-False
+True
 

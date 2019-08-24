@@ -18,13 +18,13 @@ namespace Przychodnia
 
 
 
-        public DodajPacjenta()
+        public DodajPacjenta(Pacjent pacjent)
         {
             InitializeComponent();
 
             DataContext = this;
 
-            Pacjent = MainWindow.Container.Resolve<Pacjent>();
+            Pacjent = pacjent;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -59,8 +59,7 @@ namespace Przychodnia
             if (wybierzChorobe.ShowDialog() == true)
             {
                 Pacjent.Choroby.Add(wybierzChorobe.SelectedChoroba);
-
-                OnPropertyRaised(nameof(Choroba));
+                OnPropertyRaised(nameof(Pacjent));
             }
         }
 
