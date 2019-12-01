@@ -8,6 +8,10 @@ namespace PrzychodniaWCF
     [ServiceContract]
     public interface IService1
     {
+        [OperationContract]
+        bool Ping();
+
+
         #region Lekarz
         [OperationContract]
         List<Lekarz> PobierzLekarzy();

@@ -10,6 +10,12 @@ namespace PrzychodniaWCF
     {
         private static Random random = new Random();
 
+        public bool Ping()
+        {
+            return true;
+        }
+
+
         #region Lekarz
         private static List<Lekarz> Lekarze = new List<Lekarz>();
 

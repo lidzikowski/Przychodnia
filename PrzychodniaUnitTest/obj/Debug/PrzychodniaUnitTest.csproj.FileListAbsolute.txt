@@ -1,0 +1,17 @@
+C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaUnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaUnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaUnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaUnitTest\bin\Debug\PrzychodniaUnitTest.dll.config
+C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaUnitTest\bin\Debug\PrzychodniaUnitTest.dll
+C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaUnitTest\bin\Debug\PrzychodniaUnitTest.pdb
+C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaUnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaUnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaUnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaUnitTest\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaUnitTest\obj\Debug\PrzychodniaUnitTest.csprojAssemblyReference.cache
+C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaUnitTest\obj\Debug\PrzychodniaUnitTest.csproj.CopyComplete
+C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaUnitTest\obj\Debug\PrzychodniaUnitTest.dll
+C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaUnitTest\obj\Debug\PrzychodniaUnitTest.pdb
+C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaUnitTest\bin\Debug\PrzychodniaDLL.dll
+C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaUnitTest\bin\Debug\PrzychodniaDLL.pdb
+C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaUnitTest\bin\Debug\PrzychodniaDLL.dll.config

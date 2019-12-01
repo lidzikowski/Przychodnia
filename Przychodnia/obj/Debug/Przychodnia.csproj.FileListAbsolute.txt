@@ -43,9 +43,13 @@ C:\Users\Lukasz\source\repos\Przychodnia\Przychodnia\obj\Debug\WybierzChorobe.ba
 C:\Users\Lukasz\source\repos\Przychodnia\Przychodnia\obj\Debug\Przychodnia.g.resources
 C:\Users\Lukasz\source\repos\Przychodnia\Przychodnia\obj\Debug\Przychodnia.Properties.Resources.resources
 C:\Users\Lukasz\source\repos\Przychodnia\Przychodnia\obj\Debug\Przychodnia.csproj.GenerateResource.cache
-C:\Users\Lukasz\source\repos\Przychodnia\Przychodnia\obj\Debug\Przychodnia.csproj.CoreCompileInputs.cache
 C:\Users\Lukasz\source\repos\Przychodnia\Przychodnia\obj\Debug\Przychodnia.csproj.CopyComplete
 C:\Users\Lukasz\source\repos\Przychodnia\Przychodnia\obj\Debug\Przychodnia.exe
 C:\Users\Lukasz\source\repos\Przychodnia\Przychodnia\obj\Debug\Przychodnia.pdb
 C:\Users\Lukasz\source\repos\Przychodnia\Przychodnia\obj\Debug\DodajGrafik.g.cs
 C:\Users\Lukasz\source\repos\Przychodnia\Przychodnia\obj\Debug\DodajGrafik.baml
+C:\Users\Lukasz\source\repos\Przychodnia\Przychodnia\bin\Debug\CommonServiceLocator.dll
+C:\Users\Lukasz\source\repos\Przychodnia\Przychodnia\bin\Debug\GalaSoft.MvvmLight.dll
+C:\Users\Lukasz\source\repos\Przychodnia\Przychodnia\bin\Debug\GalaSoft.MvvmLight.Extras.dll
+C:\Users\Lukasz\source\repos\Przychodnia\Przychodnia\bin\Debug\GalaSoft.MvvmLight.Platform.dll
+C:\Users\Lukasz\source\repos\Przychodnia\Przychodnia\bin\Debug\System.Windows.Interactivity.dll

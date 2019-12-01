@@ -15,6 +15,12 @@ namespace Przychodnia.ServiceReference1 {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IService1")]
     public interface IService1 {
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Ping", ReplyAction="http://tempuri.org/IService1/PingResponse")]
+        bool Ping();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Ping", ReplyAction="http://tempuri.org/IService1/PingResponse")]
+        System.Threading.Tasks.Task<bool> PingAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/PobierzLekarzy", ReplyAction="http://tempuri.org/IService1/PobierzLekarzyResponse")]
         PrzychodniaDLL.Lekarz[] PobierzLekarzy();
         
@@ -131,6 +137,14 @@ namespace Przychodnia.ServiceReference1 {
         
         public Service1Client(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public bool Ping() {
+            return base.Channel.Ping();
+        }
+        
+        public System.Threading.Tasks.Task<bool> PingAsync() {
+            return base.Channel.PingAsync();
         }
         
         public PrzychodniaDLL.Lekarz[] PobierzLekarzy() {

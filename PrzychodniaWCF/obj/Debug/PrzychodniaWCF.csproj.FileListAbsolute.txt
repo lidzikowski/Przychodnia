@@ -5,7 +5,6 @@ C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaWCF\bin\Debug\PrzychodniaDLL
 C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaWCF\bin\Debug\PrzychodniaDLL.pdb
 C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaWCF\bin\Debug\PrzychodniaDLL.dll.config
 C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaWCF\obj\Debug\PrzychodniaWCF.csprojAssemblyReference.cache
-C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaWCF\obj\Debug\PrzychodniaWCF.csproj.CoreCompileInputs.cache
 C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaWCF\obj\Debug\PrzychodniaWCF.csproj.CopyComplete
 C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaWCF\obj\Debug\PrzychodniaWCF.dll
 C:\Users\Lukasz\source\repos\Przychodnia\PrzychodniaWCF\obj\Debug\PrzychodniaWCF.pdb

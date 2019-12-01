@@ -12,6 +12,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrzychodniaDLL", "Przychodn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrzychodniaWCF", "PrzychodniaWCF\PrzychodniaWCF.csproj", "{987F905E-ADDE-4311-BCA1-E8CC51AF970D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrzychodniaUnitTest", "PrzychodniaUnitTest\PrzychodniaUnitTest.csproj", "{7E520E08-138F-462C-B910-D6069A1C1DC9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{987F905E-ADDE-4311-BCA1-E8CC51AF970D} = {987F905E-ADDE-4311-BCA1-E8CC51AF970D}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +35,10 @@ Global
 		{987F905E-ADDE-4311-BCA1-E8CC51AF970D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{987F905E-ADDE-4311-BCA1-E8CC51AF970D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{987F905E-ADDE-4311-BCA1-E8CC51AF970D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E520E08-138F-462C-B910-D6069A1C1DC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E520E08-138F-462C-B910-D6069A1C1DC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E520E08-138F-462C-B910-D6069A1C1DC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E520E08-138F-462C-B910-D6069A1C1DC9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
